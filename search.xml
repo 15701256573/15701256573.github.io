@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[いつも何度でも]]></title>
+    <url>%2F2019%2F01%2F18%2Fsomething%20just%20like%20this%2F</url>
+    <content type="text"><![CDATA[呼んでいる 胸のどこか奥で いつも心踊る 梦を见たい 内心深处的呼唤 我想要走进悸动的梦中 悲しみは 数えきれないけれど その向こうできっと あなたに会える 虽然悲伤会重演 但我一定能在某处与你相逢 缲り返すあやまちの そのたびひとは ただ青い空の 青さを知る 人们总是不停犯错 他们只知道天是蓝的 果てしなく 道は続いて见えるけれど この両手は 光を抱ける 虽然前路渺茫 但他们的双手仍在寻找光明 さよならのときの 静かな胸 ゼロになるからだが 耳をすませる 离别时平静的心，身体归于虚无时的倾听 生きている不思议 死んでいく不思议 花も风も街も みんなおなじ 莫名的生存，莫名的死去 花，风，城市都是如此 ラララ… ホホホ… フフフ… 呼んでいる 胸のどこか奥で いつも何度でも 梦を描こう 内心深处的呼唤 让我们不停的画出梦的色彩 悲しみの数を 言い尽くすより 同じくちびるで そっとうたおう 比起回忆的心中的悲伤 不如用同样的唇轻声歌唱 闭じていく思い出の そのなかにいつも 忘れたくない ささやきを闻く 即使在封锁的回忆中 仍然还有无法忘记的呢喃 こなごなに砕かれた 镜の上にも 新しい景色が 映される 即使在粉碎的镜片中 仍然能映出新的景色 はじまりの朝 静かな窓 ゼロになるからだ 充たされてゆけ 晨色初照下的宁静窗台 还有那化为虚无的身体 海の彼方には もう探さない 辉くものは いつもここに 从此我不会越过大洋去寻找 闪耀的所有都在身边 わたしのなかに 见つけられたから 我将自己去追寻 ラララ… ホホホ… フフフ…]]></content>
+      <tags>
+        <tag>闲来无事</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hello hexo]]></title>
+    <url>%2F2019%2F01%2F15%2Fhello-hexo%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[post title]]></title>
+    <url>%2F2019%2F01%2F15%2Fpost-title%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F01%2F15%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
