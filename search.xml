@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[linux安装mysql5.6]]></title>
+    <url>%2F2019%2F01%2F24%2Flinux%E5%AE%89%E8%A3%85mysql5-6%2F</url>
+    <content type="text"><![CDATA[环境1.操作系统：CentOS 6.8 64位2.安装版本：mysql-5.6.43-linux-glibc2.12-x86_64.tar.gz3.下载地址：https://dev.mysql.com/downloads/file/?id=4824604.所需工具：Xshell6.0 FlashFXP5.4.0 安装步骤第一步 卸载老版本查看命令：rpm -qa|grep -i mysql 停止命令：service mysql stop 删除命令：rpm -e --nodeps 包名 第二步 上传并解压上传到/usr/local目录下 解压：tar -zxvf mysql-5.6.43-linux-glibc2.12-x86_64 重命名：mv mysql-5.6.43-linux-glibc2.12-x86_64 mysql 第三步 创建用户组和用户检查是否已有：groups mysql 创建mysql用户组：groupadd mysql 创建mysql用户：useradd -r -g mysql mysql 第四步 更新权限并安装进入mysql目录：cd /usr/local/mysql 修改权限：chown -R mysql:mysql ./ 执行安装脚本：./scripts/mysql_install_db --user=mysql 修改当前目录拥有者为root用户：chown -R root:root ./ 修改data目录拥有者为mysql：chown -R mysql:mysql data 第四步 修改密码及配置启动mysql：./support-files/mysql.server start 更改密码：./bin/mysqladmin -u root -h localhost.localdomain password &apos;root&apos; 登录mysql：./bin/mysql -h127.0.0.1 -uroot -proot 登录之后修改其他用户密码：update mysql.user set password=password(&apos;root&apos;) where user=&apos;root&apos;; flush privileges; 增加远程访问：grant all privileges on *.* to root@&apos;%&apos; identified by &apos;root&apos;; flush privileges; 第五步 将MySQL加入Service系统服务复制启动脚本：cp support-files/mysql.server /etc/init.d/mysqld 添加系统服务：chkconfig --add mysqld 添加开机启动：chkconfig mysqld on 配置环境变量：export PATH=$PATH:/usr/local/mysql/bin 配置my.cnf添加： character_set_server=utf8 #设置字符集utf8 lower_case_table_names=1 #表名存储在磁盘是小写的，但是比较的时候是不区分大小写 max_allowed_packet=100M #限制Server接受的数据包大小 最后 启动/停止/重启命令service mysql start service mysql stop service mysql restart]]></content>
+      <categories>
+        <category>-linux环境搭建</category>
+      </categories>
+      <tags>
+        <tag>-菜鸟装机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux安装jdk1-8]]></title>
+    <url>%2F2019%2F01%2F24%2Flinux%E5%AE%89%E8%A3%85jdk1-8%2F</url>
+    <content type="text"><![CDATA[环境1.操作系统：CentOS 6.8 64位2.安装版本：jdk-8u201-linux-x64.tar.gz3.下载地址：https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html4.所需工具：Xshell6.0 FlashFXP5.4.0 安装步骤第一步 上传将压缩包上传到到/usr/local/目录下 第二步 解压解压：$ tar zxvf jdk-8u201-linux-x64.tar.gz 重命名：$ mv jdk1.8.0_201 jdk1.8.0 第三步 配置环境变量$ sudo vi /etc/profile $ shift+i进入编辑 文件最后添加 export JAVA_HOME=/usr/local/jdk1.8.0 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar export PATH=$PATH:$JAVA_HOME/bin esc退出编辑 shift+: 输入wq保存并退出 q!强制退出 使环境变量立即生效 $ source /etc/profile 第四步 查看JDK版本java -version java version &quot;1.8.0_201&quot; Java(TM) SE Runtime Environment (build 1.8.0_201-b09) Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)]]></content>
+      <categories>
+        <category>-linux环境搭建</category>
+      </categories>
+      <tags>
+        <tag>-菜鸟装机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[いつも何度でも]]></title>
     <url>%2F2019%2F01%2F18%2Fsomething%20just%20like%20this%2F</url>
     <content type="text"><![CDATA[呼んでいる 胸のどこか奥で いつも心踊る 梦を见たい 内心深处的呼唤 我想要走进悸动的梦中 悲しみは 数えきれないけれど その向こうできっと あなたに会える 虽然悲伤会重演 但我一定能在某处与你相逢 缲り返すあやまちの そのたびひとは ただ青い空の 青さを知る 人们总是不停犯错 他们只知道天是蓝的 果てしなく 道は続いて见えるけれど この両手は 光を抱ける 虽然前路渺茫 但他们的双手仍在寻找光明 さよならのときの 静かな胸 ゼロになるからだが 耳をすませる 离别时平静的心，身体归于虚无时的倾听 生きている不思议 死んでいく不思议 花も风も街も みんなおなじ 莫名的生存，莫名的死去 花，风，城市都是如此 ラララ… ホホホ… フフフ… 呼んでいる 胸のどこか奥で いつも何度でも 梦を描こう 内心深处的呼唤 让我们不停的画出梦的色彩 悲しみの数を 言い尽くすより 同じくちびるで そっとうたおう 比起回忆的心中的悲伤 不如用同样的唇轻声歌唱 闭じていく思い出の そのなかにいつも 忘れたくない ささやきを闻く 即使在封锁的回忆中 仍然还有无法忘记的呢喃 こなごなに砕かれた 镜の上にも 新しい景色が 映される 即使在粉碎的镜片中 仍然能映出新的景色 はじまりの朝 静かな窓 ゼロになるからだ 充たされてゆけ 晨色初照下的宁静窗台 还有那化为虚无的身体 海の彼方には もう探さない 辉くものは いつもここに 从此我不会越过大洋去寻找 闪耀的所有都在身边 わたしのなかに 见つけられたから 我将自己去追寻 ラララ… ホホホ… フフフ…]]></content>
