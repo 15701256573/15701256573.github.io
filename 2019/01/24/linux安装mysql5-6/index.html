@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="刘增闯的博客">
 <meta property="og:description" content="环境1.操作系统：CentOS  6.8 64位2.安装版本：mysql-5.6.43-linux-glibc2.12-x86_64.tar.gz3.下载地址：https://dev.mysql.com/downloads/file/?id=4824604.所需工具：Xshell6.0  FlashFXP5.4.0  安装步骤第一步 卸载老版本查看命令：rpm -qa|grep -i mysql">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-25T17:33:35.938Z">
+<meta property="og:updated_time" content="2019-01-25T17:41:07.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux安装mysql5.6">
 <meta name="twitter:description" content="环境1.操作系统：CentOS  6.8 64位2.安装版本：mysql-5.6.43-linux-glibc2.12-x86_64.tar.gz3.下载地址：https://dev.mysql.com/downloads/file/?id=4824604.所需工具：Xshell6.0  FlashFXP5.4.0  安装步骤第一步 卸载老版本查看命令：rpm -qa|grep -i mysql">
@@ -398,26 +398,26 @@
         <blockquote>
 <p>环境<br>1.操作系统：CentOS  6.8 64位<br>2.安装版本：mysql-5.6.43-linux-glibc2.12-x86_64.tar.gz<br>3.下载地址：<a href="https://dev.mysql.com/downloads/file/?id=482460" target="_blank" rel="noopener">https://dev.mysql.com/downloads/file/?id=482460</a><br>4.所需工具：Xshell6.0  FlashFXP5.4.0</p>
 </blockquote>
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><h4 id="第一步-卸载老版本"><a href="#第一步-卸载老版本" class="headerlink" title="第一步 卸载老版本"></a>第一步 卸载老版本</h4><pre><code>查看命令：rpm -qa|grep -i mysql
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><h3 id="第一步-卸载老版本"><a href="#第一步-卸载老版本" class="headerlink" title="第一步 卸载老版本"></a>第一步 卸载老版本</h3><pre><code>查看命令：rpm -qa|grep -i mysql
 停止命令：service mysql stop
 删除命令：rpm -e --nodeps 包名
-</code></pre><h4 id="第二步-上传并解压"><a href="#第二步-上传并解压" class="headerlink" title="第二步 上传并解压"></a>第二步 上传并解压</h4><pre><code>上传到/usr/local目录下
+</code></pre><h3 id="第二步-上传并解压"><a href="#第二步-上传并解压" class="headerlink" title="第二步 上传并解压"></a>第二步 上传并解压</h3><pre><code>上传到/usr/local目录下
 解压：tar -zxvf mysql-5.6.43-linux-glibc2.12-x86_64
 重命名：mv mysql-5.6.43-linux-glibc2.12-x86_64 mysql
-</code></pre><h4 id="第三步-创建用户组和用户"><a href="#第三步-创建用户组和用户" class="headerlink" title="第三步 创建用户组和用户"></a>第三步 创建用户组和用户</h4><pre><code>检查是否已有：groups mysql
+</code></pre><h3 id="第三步-创建用户组和用户"><a href="#第三步-创建用户组和用户" class="headerlink" title="第三步 创建用户组和用户"></a>第三步 创建用户组和用户</h3><pre><code>检查是否已有：groups mysql
 创建mysql用户组：groupadd mysql
 创建mysql用户：useradd -r -g mysql mysql
-</code></pre><h4 id="第四步-更新权限并安装"><a href="#第四步-更新权限并安装" class="headerlink" title="第四步 更新权限并安装"></a>第四步 更新权限并安装</h4><pre><code>进入mysql目录：cd /usr/local/mysql
+</code></pre><h3 id="第四步-更新权限并安装"><a href="#第四步-更新权限并安装" class="headerlink" title="第四步 更新权限并安装"></a>第四步 更新权限并安装</h3><pre><code>进入mysql目录：cd /usr/local/mysql
 修改权限：chown -R mysql:mysql ./
 执行安装脚本：./scripts/mysql_install_db --user=mysql
 修改当前目录拥有者为root用户：chown -R root:root ./
 修改data目录拥有者为mysql：chown -R mysql:mysql data
-</code></pre><h4 id="第四步-修改密码及配置"><a href="#第四步-修改密码及配置" class="headerlink" title="第四步 修改密码及配置"></a>第四步 修改密码及配置</h4><pre><code>启动mysql：./support-files/mysql.server start
+</code></pre><h3 id="第四步-修改密码及配置"><a href="#第四步-修改密码及配置" class="headerlink" title="第四步 修改密码及配置"></a>第四步 修改密码及配置</h3><pre><code>启动mysql：./support-files/mysql.server start
 更改密码：./bin/mysqladmin -u root -h localhost.localdomain password &apos;root&apos;
 登录mysql：./bin/mysql -h127.0.0.1 -uroot -proot
 登录之后修改其他用户密码：update mysql.user set password=password(&apos;root&apos;) where user=&apos;root&apos;; flush privileges;
 增加远程访问：grant all privileges on *.* to root@&apos;%&apos; identified by &apos;root&apos;; flush privileges;
-</code></pre><h4 id="第五步-将MySQL加入Service系统服务"><a href="#第五步-将MySQL加入Service系统服务" class="headerlink" title="第五步 将MySQL加入Service系统服务"></a>第五步 将MySQL加入Service系统服务</h4><pre><code>复制启动脚本：cp support-files/mysql.server /etc/init.d/mysqld
+</code></pre><h3 id="第五步-将MySQL加入Service系统服务"><a href="#第五步-将MySQL加入Service系统服务" class="headerlink" title="第五步 将MySQL加入Service系统服务"></a>第五步 将MySQL加入Service系统服务</h3><pre><code>复制启动脚本：cp support-files/mysql.server /etc/init.d/mysqld
 添加系统服务：chkconfig --add mysqld 
 添加开机启动：chkconfig mysqld on
 配置环境变量：export PATH=$PATH:/usr/local/mysql/bin
@@ -425,7 +425,7 @@
 character_set_server=utf8 #设置字符集utf8
 lower_case_table_names=1 #表名存储在磁盘是小写的，但是比较的时候是不区分大小写
 max_allowed_packet=100M #限制Server接受的数据包大小
-</code></pre><h4 id="最后-启动-停止-重启命令"><a href="#最后-启动-停止-重启命令" class="headerlink" title="最后 启动/停止/重启命令"></a>最后 启动/停止/重启命令</h4><pre><code>service mysql start
+</code></pre><h3 id="最后-启动-停止-重启命令"><a href="#最后-启动-停止-重启命令" class="headerlink" title="最后 启动/停止/重启命令"></a>最后 启动/停止/重启命令</h3><pre><code>service mysql start
 service mysql stop
 service mysql restart
 </code></pre>
@@ -621,7 +621,7 @@ service mysql restart
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装步骤"><span class="nav-number">1.</span> <span class="nav-text">安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步-卸载老版本"><span class="nav-number">1.0.1.</span> <span class="nav-text">第一步 卸载老版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步-上传并解压"><span class="nav-number">1.0.2.</span> <span class="nav-text">第二步 上传并解压</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步-创建用户组和用户"><span class="nav-number">1.0.3.</span> <span class="nav-text">第三步 创建用户组和用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四步-更新权限并安装"><span class="nav-number">1.0.4.</span> <span class="nav-text">第四步 更新权限并安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四步-修改密码及配置"><span class="nav-number">1.0.5.</span> <span class="nav-text">第四步 修改密码及配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五步-将MySQL加入Service系统服务"><span class="nav-number">1.0.6.</span> <span class="nav-text">第五步 将MySQL加入Service系统服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最后-启动-停止-重启命令"><span class="nav-number">1.0.7.</span> <span class="nav-text">最后 启动/停止/重启命令</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装步骤"><span class="nav-number">1.</span> <span class="nav-text">安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步-卸载老版本"><span class="nav-number">1.1.</span> <span class="nav-text">第一步 卸载老版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步-上传并解压"><span class="nav-number">1.2.</span> <span class="nav-text">第二步 上传并解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步-创建用户组和用户"><span class="nav-number">1.3.</span> <span class="nav-text">第三步 创建用户组和用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步-更新权限并安装"><span class="nav-number">1.4.</span> <span class="nav-text">第四步 更新权限并安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步-修改密码及配置"><span class="nav-number">1.5.</span> <span class="nav-text">第四步 修改密码及配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五步-将MySQL加入Service系统服务"><span class="nav-number">1.6.</span> <span class="nav-text">第五步 将MySQL加入Service系统服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后-启动-停止-重启命令"><span class="nav-number">1.7.</span> <span class="nav-text">最后 启动/停止/重启命令</span></a></li></ol></li></ol></div>
             
 
           </div>
