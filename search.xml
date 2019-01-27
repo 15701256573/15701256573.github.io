@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[TCP和UDP]]></title>
+    <url>%2F2019%2F01%2F27%2FTCP%E5%92%8CUDP%2F</url>
+    <content type="text"><![CDATA[TCP和UDP的介绍 TCP(Transmission Control Protocol 传输控制协议)：属于传输层协议。是一种面向连接的、可靠的、基于字节流（将上层传输下来的数据当做无结构的字节流）的传输层协议。连接的建立需要三次握手，释放需要四次挥手。在一个TCP连接中，仅有两方进行彼此通信（一对一的通信），可以确保数据通信的完整性和可靠性，防止丢包。TCP在IP协议的基础上添加了序号机制，确认机制，超时重传机制，数据校验，从而保证传输的可靠性，同时保证不出现丢失或者乱序。UDP(User Datagram Protocol 用户数据报协议)：属于传输层协议。是一种无连接的，面向报文的数据包服务。在发送数据是不需要建立连接，从上层接收到数据如果报文不大于传输限制，则直接加上首部传输，如果报文过大，会进行IP分片。UPD协议可以进行一对一或一对多的通信，但可能会出现丢包、乱序的问题。 TCP和UDP的优缺点 TCP 优点：可靠、稳定。 缺点：较慢、效率低，占用系统资源较高。UDP 优点：快、较TCP安全、占用系统资源少 缺点：不可靠、不稳定。 TCP和UDP的区别 1.TCP是基于连接的，UDP无连接的。2.TCP是基于字节流模式的，UDP基于数据报文模式。3.TCP对系统资源要求较多，UDP相对较少。4.UDP程序结构相对简单，较快，TCP则相对复杂5.TCP可以保证数据的可靠性，UDP则可能出现丢包、乱序、重复的可能。]]></content>
+      <categories>
+        <category>-网络编程</category>
+      </categories>
+      <tags>
+        <tag>-网络编程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[linux安装mysql5.6]]></title>
     <url>%2F2019%2F01%2F24%2Flinux%E5%AE%89%E8%A3%85mysql5-6%2F</url>
     <content type="text"><![CDATA[环境1.操作系统：CentOS 6.8 64位2.安装版本：mysql-5.6.43-linux-glibc2.12-x86_64.tar.gz3.下载地址：https://dev.mysql.com/downloads/file/?id=4824604.所需工具：Xshell6.0 FlashFXP5.4.0 安装步骤第一步 卸载老版本查看命令：rpm -qa|grep -i mysql 停止命令：service mysql stop 删除命令：rpm -e --nodeps 包名 第二步 上传并解压上传到/usr/local目录下 解压：tar -zxvf mysql-5.6.43-linux-glibc2.12-x86_64 重命名：mv mysql-5.6.43-linux-glibc2.12-x86_64 mysql 第三步 创建用户组和用户检查是否已有：groups mysql 创建mysql用户组：groupadd mysql 创建mysql用户：useradd -r -g mysql mysql 第四步 更新权限并安装进入mysql目录：cd /usr/local/mysql 修改权限：chown -R mysql:mysql ./ 执行安装脚本：./scripts/mysql_install_db --user=mysql 修改当前目录拥有者为root用户：chown -R root:root ./ 修改data目录拥有者为mysql：chown -R mysql:mysql data 第四步 修改密码及配置启动mysql：./support-files/mysql.server start 更改密码：./bin/mysqladmin -u root -h localhost.localdomain password &apos;root&apos; 登录mysql：./bin/mysql -h127.0.0.1 -uroot -proot 登录之后修改其他用户密码：update mysql.user set password=password(&apos;root&apos;) where user=&apos;root&apos;; flush privileges; 增加远程访问：grant all privileges on *.* to root@&apos;%&apos; identified by &apos;root&apos;; flush privileges; 第五步 将MySQL加入Service系统服务复制启动脚本：cp support-files/mysql.server /etc/init.d/mysqld 添加系统服务：chkconfig --add mysqld 添加开机启动：chkconfig mysqld on 配置环境变量：export PATH=$PATH:/usr/local/mysql/bin 配置my.cnf添加： character_set_server=utf8 #设置字符集utf8 lower_case_table_names=1 #表名存储在磁盘是小写的，但是比较的时候是不区分大小写 max_allowed_packet=100M #限制Server接受的数据包大小 最后 启动/停止/重启命令service mysql start service mysql stop service mysql restart]]></content>
